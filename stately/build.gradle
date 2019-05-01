@@ -39,27 +39,14 @@ kotlin {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
             }
         }
-        commonTest {
-            dependencies {
-        		implementation 'org.jetbrains.kotlin:kotlin-test-common'
-        		implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
-                implementation 'co.touchlab:testhelp:0.2.0'
-            }
-        }
+
         jvmMain {
             dependsOn commonMain
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
             }
         }
-        jvmTest {
-            dependsOn commonTest
-            dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-test'
-                implementation 'org.jetbrains.kotlin:kotlin-test-junit'
-            }
-        }
-        
+
         //Disabling js till we sort out some testing
         /*jsMain {
             dependsOn commonMain
@@ -77,66 +64,35 @@ kotlin {
         nativeCommonMain {
             dependsOn commonMain
         }
-        
-        nativeCommonTest {
-            dependsOn commonTest
-        }
 
         appleMain {
             dependsOn nativeCommonMain
-        }
-
-        appleTest {
-            dependsOn nativeCommonTest
         }
 
         macosX64().compilations.main.defaultSourceSet {
             dependsOn appleMain
         }
 
-        macosX64().compilations.test.defaultSourceSet {
-            dependsOn appleTest
-        }
-        
         iosArm32().compilations.main.defaultSourceSet {
             dependsOn appleMain
         }
 
-        iosArm32().compilations.test.defaultSourceSet {
-            dependsOn appleTest
-        }
-        
         iosArm64().compilations.main.defaultSourceSet {
             dependsOn appleMain
         }
 
-        iosArm64().compilations.test.defaultSourceSet {
-            dependsOn appleTest
-        }
-        
         iosX64().compilations.main.defaultSourceSet {
             dependsOn appleMain
-        }
-
-        iosX64().compilations.test.defaultSourceSet {
-            dependsOn appleTest
         }
 
         otherNativeMain {
             dependsOn nativeCommonMain
         }
 
-        otherNativeTest {
-            dependsOn nativeCommonTest
-        }
-
         mingwX64().compilations.main.defaultSourceSet {
             dependsOn otherNativeMain
         }
-        
-        mingwX64().compilations.test.defaultSourceSet {
-            dependsOn otherNativeTest
-        }
+
     }
 }
 
