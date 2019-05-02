@@ -21,7 +21,7 @@ repositories {
 }
 
 group = GROUP
-version = VERSION_NAME
+version = VERSION_NAME + System.getenv("PG_BUILD_NUMBER")
 
 kotlin {
 //    macosX64("apple")
