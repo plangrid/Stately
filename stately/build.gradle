@@ -40,6 +40,14 @@ kotlin {
             }
         }
 
+        commonTest {
+            dependencies {
+        		implementation 'org.jetbrains.kotlin:kotlin-test-common'
+        		implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
+                implementation 'co.touchlab:testhelp:0.2.2'
+            }
+        }
+
         jvmMain {
             dependsOn commonMain
             dependencies {
@@ -89,10 +97,9 @@ kotlin {
             dependsOn nativeCommonMain
         }
 
-        mingwX64().compilations.main.defaultSourceSet {
-            dependsOn otherNativeMain
+        mingwX64().compilations.test.defaultSourceSet {
+            dependsOn mingwTest
         }
-
     }
 }
 
