@@ -85,6 +85,10 @@ kotlin {
             dependsOn appleMain
         }
 
+        mingwX64().compilations.main.defaultSourceSet {
+            dependsOn otherNativeMain
+        }
+
         otherNativeMain {
             dependsOn nativeCommonMain
         }
