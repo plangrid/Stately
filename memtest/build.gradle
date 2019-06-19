@@ -34,7 +34,7 @@ kotlin {
 
 task runProgram {
     def buildType = 'DEBUG' // Change to 'DEBUG' to run application with debug symbols.
-    dependsOn kotlin.targets.macos.binaries.getExecutable("DEBUG").linkTask
+    dependsOn kotlin.targets.macos.binaries.getExecutable(buildType).linkTask
     doLast {
         def programFile = kotlin.targets.macos.compilations.main.getBinary('EXECUTABLE', buildType)
         exec {
